@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'login_screen.dart';
+import 'gridview_page.dart'; // Import GridView Page
+import 'listview_page.dart'; // Import ListView Page
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -77,12 +79,27 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
               ListTile(
                 leading: const Icon(Icons.person),
                 title: Text('Profile', style: GoogleFonts.poppins()),
-                onTap: () {}, // Add profile functionality if needed
+                onTap: () {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const ListViewPage()), 
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.grid_view), 
+                title: Text('Grid View', style: GoogleFonts.poppins()),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const GridviewPage()), 
+                  );
+                },
               ),
               ListTile(
                 leading: const Icon(Icons.settings),
                 title: Text('Settings', style: GoogleFonts.poppins()),
-                onTap: () {}, // Add settings functionality if needed
+                onTap: () {}, 
               ),
               ListTile(
                 leading: const Icon(Icons.logout),
